@@ -1,0 +1,31 @@
+﻿@model List<Order>
+
+@{
+    ViewData["Title"] = "Privacy Policy";
+}
+
+<div class="order_list">
+    <table>
+        <tr>
+            <th>№ Заказа</th>
+            <th>Город отправителя</th>
+            <th>Адрес отправителя</th>
+            <th>Город получателя</th>
+            <th>Адрес получателя</th>
+            <th>Вес груза</th>
+            <th>Дата забора груза</th>
+        </tr>
+        @foreach (var order in Model)
+        {
+            <tr>
+                <td>@order.OrderNumber.ToString()</td>
+                <td>@order.SenderCity.ToString()</td>
+                <td>@order.SenderAddress.ToString()</td>
+                <td>@order.RecipientCity.ToString()</td>
+                <td>@order.RecipientAddress.ToString()</td>
+                <td>@order.Weight</td>
+                <td>@order.Date</td>
+            </tr>
+        }
+    </table>
+</div>

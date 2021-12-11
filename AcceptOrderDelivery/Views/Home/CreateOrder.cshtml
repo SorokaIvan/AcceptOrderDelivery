@@ -1,0 +1,53 @@
+﻿@model Order
+
+@{
+    ViewData["Title"] = "Privacy Policy";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <div class="form form_position">
+            <legend class="form_title">Заполните форму для отправки:</legend>
+
+            <div class="form_group">
+                @Html.TextBoxFor(model => model.SenderCity, new {placeholder = "Город отправителя", @class = "form_input"})
+                @Html.ValidationMessageFor(model => model.SenderCity)
+            </div>
+
+            <div class="form_group">
+                @Html.TextBoxFor(model => model.SenderAddress, new {placeholder = "Адрес отправителя", @class = "form_input"})
+                @Html.ValidationMessageFor(model => model.SenderAddress)
+            </div>
+
+            <div class="form_group">
+                @Html.TextBoxFor(model => model.RecipientCity, new {placeholder = "Город получателя", @class = "form_input"})
+                @Html.ValidationMessageFor(model => model.RecipientCity)
+            </div>
+
+            <div class="form_group">
+                @Html.TextBoxFor(model => model.RecipientAddress, new {placeholder = "Адрес получателя", @class = "form_input"})
+                @Html.ValidationMessageFor(model => model.RecipientAddress)
+            </div>
+
+            <div class="form_group">
+                @Html.TextBoxFor(model => model.Weight, new {placeholder = "Вес груза", @class = "form_input"})
+                @Html.ValidationMessageFor(model => model.Weight)
+            </div>
+
+            <div class="form_group">
+                @Html.EditorFor(model => model.Date, new {placeholder = "Дата забора груза", @class = "form_input"})
+                @Html.ValidationMessageFor(model => model.Date)
+            </div>
+            <p>
+                <input class="form_button" type="submit" value="Добавить" />
+            </p>
+        </div>
+
+        
+    </fieldset>
+
+}
+
